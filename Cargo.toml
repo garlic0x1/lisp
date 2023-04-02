@@ -1,0 +1,15 @@
+[package]
+name = "interpreter-2"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = { version = "*", features = ["full"] }
+cons-list = "0.0.3"
+edn-rs = "0.17.4"
+anyhow = "*"
+maplit = "*"
+clap = { version = "*", features = ["derive"] }
+# edn-derive = "*"
