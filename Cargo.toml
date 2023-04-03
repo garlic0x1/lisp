@@ -11,5 +11,6 @@ cons-list = "0.0.3"
 edn-rs = "0.17.4"
 anyhow = "*"
 maplit = "*"
+take-until = "*"
 clap = { version = "*", features = ["derive"] }
 # edn-derive = "*"

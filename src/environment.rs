@@ -1,5 +1,6 @@
 use crate::value::*;
 use std::collections::HashMap;
+use take_until::*;
 
 #[derive(Clone, Debug)]
 pub struct Frame {
@@ -28,10 +29,12 @@ impl Env {
         let stack = self.stack
             .iter()
             .rev()
-            .take_while(|f| f.capture)
+            .take_until(|f| f.capture)
             .find_map(|f| f.values.get(name));
 
-        if stack.is_some() {return stack};
-        self.global.get(name)
+        match stack {
+            Some(s) => Some(s),
+            None => self.global.get(name),
+        }
     }
 }

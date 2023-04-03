@@ -8,6 +8,7 @@ use crate::{
 };
 
 pub fn closure(input: &[Value], _env: &mut Env) -> Result<Value> {
+    dbg!(&input);
     if let (Some(Expr(args)), Some(Expr(body))) = (input.get(0), input.get(1)) {
         if let Vector(args) = args.clone() {
             return Ok(Fn(Lambda(Lambda{
@@ -21,6 +22,7 @@ pub fn closure(input: &[Value], _env: &mut Env) -> Result<Value> {
 }
 
 pub fn function(input: &[Value], _env: &mut Env) -> Result<Value> {
+    dbg!(&input);
     if let (Some(Expr(args)), Some(Expr(body))) = (input.get(0), input.get(1)) {
         if let Vector(args) = args.clone() {
             return Ok(Fn(Lambda(Lambda{
